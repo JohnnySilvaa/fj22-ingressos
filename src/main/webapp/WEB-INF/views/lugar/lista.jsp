@@ -20,8 +20,7 @@
 							<c:forEach var="lugar" items="${map.value}">
 								<td class="fileira-assento"><figure>
 								
-										<svg class="assento ${sessao.isDisponivel(lugar) ? "
-														disponivel" : "ocupado"}" onclick="${sessao.isDisponivel(lugar) ? 'changeCheckbox(this)' : '' }"
+										<svg class="assento"
 														version="1.0" id="SEAT" xmlns="http://www.w3.org/2000/svg"
 														xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 														viewBox="0 0 318.224 305.246"
