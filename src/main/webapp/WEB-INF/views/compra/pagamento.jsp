@@ -20,7 +20,6 @@
 
                 <tbody>
                 <c:forEach items="${carrinho.ingressos}" var="ingresso" varStatus="status">
-
                     <input type="hidden" name="ingressos[${status.index}].sessao.id" value="${ingresso.sessao.id}">
                     <input type="hidden" name="ingressos[${status.index}].lugar.id" value="${ingresso.lugar.id}">
                     <input type="hidden" name="ingressos[${status.index}].tipoDeIngresso" value="${ingresso.tipoDeIngresso}">
