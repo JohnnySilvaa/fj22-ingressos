@@ -17,7 +17,7 @@
                 <th>Tipo do Ingresso</th>
                 <th>Preço</th>
                 </thead>
-
+                
                 <tbody>
                 <c:forEach items="${carrinho.ingressos}" var="ingresso" varStatus="status">
                     <input type="hidden" name="ingressos[${status.index}].sessao.id" value="${ingresso.sessao.id}">
@@ -72,6 +72,12 @@
                     <input id="cvv" type="text" name="cvv" class="form-control">
                 </div>
             </div>
+            <div class="form-group">
+     <div class="col-md-6">
+         <label for="vencimento">Vencimento:</label>
+         <input id="vencimento" type="text" name="vencimento" class="form-control">
+     </div>˜
+ </div>
 
 
             <div class="form-group">

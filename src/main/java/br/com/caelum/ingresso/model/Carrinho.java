@@ -34,5 +34,8 @@ public class Carrinho {
 			this.ingressos = ingressos;
 		}
 
+		public Compra toCompra(){
+		     return  new Compra(ingressos);
+		 }
 
 }
