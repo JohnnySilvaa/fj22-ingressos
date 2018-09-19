@@ -22,26 +22,9 @@ public class Token {
         this.email = email;
     }
 
-    
     //getters e setters
 
-    public String getUuid() {
-		return uuid;
-	}
-
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	@PrePersist
+    @PrePersist
     public void prePersist(){
         uuid = UUID.randomUUID().toString();
     }

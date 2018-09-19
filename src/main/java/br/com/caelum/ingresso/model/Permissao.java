@@ -7,7 +7,11 @@ import org.springframework.security.core.GrantedAuthority;
 
 @Entity
 public class Permissao implements GrantedAuthority {
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
     private String nome;
 
     public Permissao(String nome) {

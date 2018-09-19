@@ -36,4 +36,17 @@ public class Mailer {
             throw new IllegalArgumentException(e);
         }
     }
+
+	public JavaMailSender getSender() {
+		return sender;
+	}
+
+	public void setSender(JavaMailSender sender) {
+		this.sender = sender;
+	}
+
+	public String getFrom() {
+		return from;
+	}
+    
 }
