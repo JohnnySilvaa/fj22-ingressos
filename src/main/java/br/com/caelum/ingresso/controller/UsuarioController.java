@@ -16,6 +16,7 @@ import br.com.caelum.ingresso.helper.TokenHelper;
 import br.com.caelum.ingresso.mail.EmailNovoUsuario;
 import br.com.caelum.ingresso.model.Mailer;
 import br.com.caelum.ingresso.model.Token;
+import br.com.caelum.ingresso.model.Usuario;
 import br.com.caelum.ingresso.model.form.ConfirmacaoLoginForm;
 
 @Controller
@@ -74,5 +75,26 @@ public class UsuarioController {
 			return view;
 
 		}
+	 
+	 
+	 @PostMapping("/usuario/cadastrar")
+	 @Transactional
+	 public ModelAndView cadastrar(ConfirmacaoLoginForm form){
+	     ModelAndView view = new ModelAndView("redirect:/login");
+
+	     if ( form.isValid() ) {
+	         Usuario usuario = form.toUsuario(usuarioDao, passwordEncoder);
+
+	         usuarioDao.save(usuario);
+
+	         view.addObject("msg", "Usuario cadastrado com sucesso!");
+
+	         return view;
+	     }
+
+	     view.addObject("msg", "O token do link utilizado não foi encontrado!");
+
+	     return view;
+	 }
 
 }

@@ -17,6 +17,7 @@ public class Permissao implements GrantedAuthority {
     public Permissao(String nome) {
         this.nome = nome;
     }
+    
 
     /**
     * @deprecated hibernate only
