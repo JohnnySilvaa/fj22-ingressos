@@ -5,7 +5,9 @@ import java.util.UUID;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.PrePersist;
-import javax.validation.constraints.Email;
+
+import org.hibernate.validator.constraints.Email;
+
 
 @Entity
 public class Token {
@@ -23,9 +25,25 @@ public class Token {
     }
 
     //getters e setters
-
+    
     @PrePersist
     public void prePersist(){
         uuid = UUID.randomUUID().toString();
     }
+
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 }
