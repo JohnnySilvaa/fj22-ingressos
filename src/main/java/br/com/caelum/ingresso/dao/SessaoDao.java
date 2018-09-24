@@ -36,4 +36,7 @@ public class SessaoDao {
 	}
 	
 	
+    public void delete(Integer id) {
+        manager.remove(findOne(id));
+    }
 }

@@ -37,5 +37,11 @@ public class Carrinho {
 		public Compra toCompra(){
 		     return  new Compra(ingressos);
 		 }
+		
 
+		public void clear(){
+			getIngressos().clear();
+		}
+
+		
 }

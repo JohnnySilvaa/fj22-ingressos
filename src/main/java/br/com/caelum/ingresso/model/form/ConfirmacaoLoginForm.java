@@ -71,8 +71,9 @@ public class ConfirmacaoLoginForm {
 	private Usuario novoUsuario(String email, String password) {
 		Set<Permissao> permissoes = new HashSet<>();
 		Permissao permissao = new Permissao();
-//		permissao.setNome("COMPRADOR");
-		permissao.setNome("ADMIN");
+		
+		permissao.setNome("COMPRADOR");
+//		permissao.setNome("ADMIN");
 		permissoes.add(permissao);
 
 		return new Usuario(email, password, permissoes);

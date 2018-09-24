@@ -3,6 +3,7 @@ package br.com.caelum.ingresso.configuracao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportResource;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -26,7 +27,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	       http
 	           .csrf().disable().authorizeRequests()                
 	               .antMatchers("**/admin/**").hasRole("ADMIN")
-	               .antMatchers("**/compra/**").hasRole("COMPRADOR")
+	               .antMatchers(HttpMethod.DELETE, "**/admin**").hasRole("ADMIN")
+	               .antMatchers("**/compra/**").permitAll()
 	               .antMatchers("/usuario/**").permitAll() // <== nova linha
 	               .antMatchers("/filme/**").permitAll()
 	               .antMatchers("/sessao/**/lugares").permitAll()

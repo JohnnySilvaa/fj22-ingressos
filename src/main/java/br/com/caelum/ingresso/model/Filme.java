@@ -2,10 +2,14 @@ package br.com.caelum.ingresso.model;
 
 import java.math.BigDecimal;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  * Created by nando on 03/03/17.
@@ -21,6 +25,17 @@ public class Filme {
     private String genero;
     private BigDecimal preco;
 
+    
+    public List<Sessao> getSessaos() {
+		return sessaos;
+	}
+
+	public void setSessaos(List<Sessao> sessaos) {
+		this.sessaos = sessaos;
+	}
+
+	@OneToMany(cascade = CascadeType.PERSIST)
+    List<Sessao> sessaos = new ArrayList<>();
     
     
     /**
@@ -76,6 +91,11 @@ public class Filme {
 	public void setPreco(BigDecimal preco) {
 		this.preco = preco;
 	}
+
+	public void setDuracao(Duration duracao) {
+		this.duracao = duracao;
+	}
     
+	
     
 }
