@@ -9,4 +9,14 @@ Desenvolvido por: Johnny
 
 
 
- 
+
+
+
+
+
+
+
+
+
+execute a seguinte query no banco para cadastrar um novo usuario
+INSERT INTO permissao VALUES("ADMIN") ;
