@@ -1,12 +1,11 @@
 package br.com.caelum.ingresso.model.form;
 
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
-import org.apache.log4j.net.SyslogAppender;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import br.com.caelum.ingresso.dao.PermissaoDao;
 import br.com.caelum.ingresso.dao.UsuarioDao;
 import br.com.caelum.ingresso.model.Permissao;
 import br.com.caelum.ingresso.model.Token;
@@ -54,7 +53,7 @@ public class ConfirmacaoLoginForm {
 	}
 
 	public Usuario toUsuario(UsuarioDao dao, PasswordEncoder encoder) {
-
+		
         String encriptedPassword = encoder.encode(this.password);
 
         String email = token.getEmail();
@@ -72,9 +71,11 @@ public class ConfirmacaoLoginForm {
 		Set<Permissao> permissoes = new HashSet<>();
 		Permissao permissao = new Permissao();
 		
-		permissao.setNome("COMPRADOR");
-//		permissao.setNome("ADMIN");
+//		permissao.setNome("COMPRADOR");
+		
+		permissao.setNome("ADMIN");
 		permissoes.add(permissao);
+		
 
 		return new Usuario(email, password, permissoes);
 	}

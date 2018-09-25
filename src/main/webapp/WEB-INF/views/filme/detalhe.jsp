@@ -1,16 +1,19 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: nando
-  Date: 20/01/17
-  Time: 12:51
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib tagdir="/WEB-INF/tags/" prefix="ingresso" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
 
 <ingresso:template>
     <jsp:body>
@@ -39,21 +42,21 @@
 	        </div>
 	
 	        <div>
-	            <label for="descricao">DescriÃ§Ã£o</label>
+	            <label for="descricao">Descrição</label>
 	            <span id="descricao">${detalhes.descricao}</span>
 	        </div>
 	
 	        <div>
-	            <label for="avaliacao">AvaliaÃ§Ã£o</label>
+	            <label for="avaliacao">Avaliação</label>
 	            <span id="avaliacao">${detalhes.avaliacao}</span>
 	        </div>
 
-		<%-- 	<sec:authorize access="hasRole('COMPRADOR')">  --%> 
+			<%-- <sec:authorize access="hasRole('COMPRADOR')"> --%>
 				<table class="table table-hover">
 					<thead>
 						<th>Sala</th>
 						<th>Horario</th>
-						<th>AÃ§Ãµes</th>
+						<th>Ações</th>
 					</thead>
 					<tbody>
 						<c:forEach items="${sessoes}" var="sessao">
@@ -69,7 +72,10 @@
 							</tr>
 						</c:forEach>
 					</tbody>
-			<%-- </sec:authorize>  --%> 
+				</table>
+			<%-- </sec:authorize> --%>
 		</div>
     </jsp:body>
 </ingresso:template>
+</body>
+</html>

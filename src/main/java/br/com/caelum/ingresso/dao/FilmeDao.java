@@ -8,7 +8,6 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
 import br.com.caelum.ingresso.model.Filme;
-import br.com.caelum.ingresso.model.Sessao;
 
 /**
  * Created by nando on 03/03/17.

@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.caelum.ingresso.dao.PermissaoDao;
 import br.com.caelum.ingresso.dao.UsuarioDao;
 import br.com.caelum.ingresso.helper.TokenHelper;
 import br.com.caelum.ingresso.mail.EmailNovoUsuario;
 import br.com.caelum.ingresso.model.Mailer;
+import br.com.caelum.ingresso.model.Permissao;
 import br.com.caelum.ingresso.model.Token;
 import br.com.caelum.ingresso.model.Usuario;
 import br.com.caelum.ingresso.model.form.ConfirmacaoLoginForm;
@@ -42,6 +44,9 @@ public class UsuarioController {
 	 @PostMapping("/usuario/request")
 	 @Transactional
 	 public ModelAndView solicitacaoDeAcesso(String email){
+		 
+		 	SetPermissao setPermissao = new SetPermissao();
+	    	setPermissao.salvaPermissao();
 
 	     ModelAndView view = new ModelAndView("usuario/adicionado");
 
@@ -73,15 +78,16 @@ public class UsuarioController {
 			view.addObject("confirmacaoLoginForm", confirmacaoLoginForm);
 			System.out.println();
 			return view;
+			
+			
 
 		}
-	 
 	 
 	 @PostMapping("/usuario/cadastrar")
 	 @Transactional
 	 public ModelAndView cadastrar(ConfirmacaoLoginForm form){
 	     ModelAndView view = new ModelAndView("redirect:/login");
-
+			
 	     if ( form.isValid() ) {
 	         Usuario usuario = form.toUsuario(usuarioDao, passwordEncoder);
 
