@@ -18,9 +18,8 @@ Desenvolvido por: Johnny
 
 
 
-//
-//
-execute a seguinte query no banco se quiser cadastrar um novo usuario
+
+//execute a seguinte query no banco se quiser cadastrar um novo usuario
 
 //insere no banco permissao de admin para acessar as páginas web
 INSERT INTO permissao VALUES("ADMIN") ;
